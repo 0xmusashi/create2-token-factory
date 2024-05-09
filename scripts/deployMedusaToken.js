@@ -10,13 +10,13 @@ const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider)
 const FACTORY_ADDRESS = '0xfCBE3Eb9b182d18aF308938F5fdf9Fd4EcCb1cfA';
 const deployerAddress = signer.address;
 const deployerBytes = ethers.getBytes(deployerAddress).slice(0, 20);
-const randomString = "medusa"; // This value must change on every MedusaToken deployment
+const randomString = "0xmusashi"; // This value must change on every MedusaToken deployment
 const randomBytes = ethers.toUtf8Bytes(randomString);
 const concatenatedBytes = ethers.concat([deployerBytes, randomBytes]);
 
 // Generating the salt by hashing the concatenated bytes
 const salt = ethers.keccak256(concatenatedBytes);
-const tokenID = 1;  // Example ID for the artwork
+const tokenID = 1999;  // Example ID for the artwork
 
 async function deployMedusaToken() {
     try {
