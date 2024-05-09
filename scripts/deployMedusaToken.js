@@ -5,10 +5,9 @@ require('dotenv').config();
 const abi = require("../artifacts/contracts/MedusaTokenFactory.sol/MedusaTokenFactory.json");
 
 const provider = new ethers.JsonRpcProvider(process.env.TESTNET_RPC_URL)
-const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider)
 
 const FACTORY_ADDRESS = '0xfCBE3Eb9b182d18aF308938F5fdf9Fd4EcCb1cfA';
-const deployerAddress = signer.address;
+const deployerAddress = process.env.DEPLOYER_ADDRESS;
 const deployerBytes = ethers.getBytes(deployerAddress).slice(0, 20);
 const randomString = "0xmusashi"; // This value must change on every MedusaToken deployment
 const randomBytes = ethers.toUtf8Bytes(randomString);
@@ -20,7 +19,7 @@ const tokenID = 1999;  // Example ID for the artwork
 
 async function deployMedusaToken() {
     try {
-        const MedusaFactoryContract = new ethers.Contract(FACTORY_ADDRESS, abi.abi, signer);
+        const MedusaFactoryContract = new ethers.Contract(FACTORY_ADDRESS, abi.abi, provider);
         // Compute expected address before deployment
         const expectedAddress = await MedusaFactoryContract.computeTokenAddress(salt, tokenID);
         console.log('Expected MedusaToken address:', expectedAddress);
