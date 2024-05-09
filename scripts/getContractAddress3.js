@@ -24,7 +24,7 @@ async function getContractAddress3() {
 
     for (let i = 100000; i < ATTEMPS; i++) {
         const address = await MedusaFactoryContract.computeTokenAddress(salt, i);
-        console.log(`id #${i} - address: ${address}`);
+        // console.log(`id #${i} - address: ${address}`);
         if (address.slice(-5) == PATTERN || address.slice(2, 7) == PATTERN) {
             console.log('Found tokenID = ', i);
             break;
