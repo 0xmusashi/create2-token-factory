@@ -17,12 +17,12 @@ const concatenatedBytes = ethers.concat([deployerBytes, randomBytes]);
 const salt = ethers.keccak256(concatenatedBytes);
 
 const PATTERN = '42069';
-const ATTEMPS = 150000;
+const ATTEMPS = 350000;
 
 async function getContractAddress3() {
     const MedusaFactoryContract = new ethers.Contract(FACTORY_ADDRESS, abi.abi, provider);
 
-    for (let i = 100000; i < ATTEMPS; i++) {
+    for (let i = 300000; i < ATTEMPS; i++) {
         const address = await MedusaFactoryContract.computeTokenAddress(salt, i);
         // console.log(`id #${i} - address: ${address}`);
         if (address.slice(-5) == PATTERN || address.slice(2, 7) == PATTERN) {
