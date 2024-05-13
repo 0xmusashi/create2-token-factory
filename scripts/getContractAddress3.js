@@ -9,7 +9,7 @@ const provider = new ethers.JsonRpcProvider(process.env.TESTNET_RPC_URL)
 const FACTORY_ADDRESS = '0xfCBE3Eb9b182d18aF308938F5fdf9Fd4EcCb1cfA';
 const deployerAddress = process.env.DEPLOYER_ADDRESS;
 const deployerBytes = ethers.getBytes(deployerAddress).slice(0, 20);
-const randomString = "0xmusashi"; // This value must change on every MedusaToken deployment
+const randomString = "nsb"; // This value must change on every MedusaToken deployment
 const randomBytes = ethers.toUtf8Bytes(randomString);
 const concatenatedBytes = ethers.concat([deployerBytes, randomBytes]);
 
@@ -17,12 +17,12 @@ const concatenatedBytes = ethers.concat([deployerBytes, randomBytes]);
 const salt = ethers.keccak256(concatenatedBytes);
 
 const PATTERN = '42069';
-const ATTEMPS = 600000;
+const ATTEMPS = 300000;
 
 async function getContractAddress3() {
     const MedusaFactoryContract = new ethers.Contract(FACTORY_ADDRESS, abi.abi, provider);
 
-    for (let i = 550000; i < ATTEMPS; i++) {
+    for (let i = 200000; i < ATTEMPS; i++) {
         const address = await MedusaFactoryContract.computeTokenAddress(salt, i);
         // console.log(`id #${i} - address: ${address}`);
         if (address.slice(-5) == PATTERN || address.slice(2, 7) == PATTERN) {
