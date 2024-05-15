@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/baoanh/Documents/retro/create2/contracts/MedusaToken.sol": {
-      "lastModificationDate": 1715265060316,
-      "contentHash": "60e1febe4c80f3f893db750c26b75848",
+      "lastModificationDate": 1715770150628,
+      "contentHash": "47dfcc2ce010c47202f9284287db0802",
       "sourceName": "contracts/MedusaToken.sol",
       "solcConfig": {
         "version": "0.8.20",
@@ -30,6 +30,7 @@
         }
       },
       "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
         "@openzeppelin/contracts/token/ERC20/ERC20.sol",
         "@openzeppelin/contracts/access/Ownable.sol"
       ],
@@ -230,8 +231,8 @@
       ]
     },
     "/Users/baoanh/Documents/retro/create2/contracts/MedusaTokenFactory.sol": {
-      "lastModificationDate": 1715265073199,
-      "contentHash": "31b6d20965ebf869f60a4e2172926fce",
+      "lastModificationDate": 1715767832703,
+      "contentHash": "cc29807c6919c5d670086eb4f9f7f4fd",
       "sourceName": "contracts/MedusaTokenFactory.sol",
       "solcConfig": {
         "version": "0.8.20",

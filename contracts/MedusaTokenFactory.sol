@@ -8,18 +8,10 @@ contract MedusaTokenFactory {
     address public latestTokenAddress;
     mapping(bytes32 => address) public deployedTokens;
 
-    modifier isTokenNotDeployed(bytes32 _salt) {
-        require(
-            deployedTokens[_salt] == address(0),
-            "Medusa token already deployed for this salt"
-        );
-        _;
-    }
-
     function deployToken(
         bytes32 _salt,
         uint256 _tokenID
-    ) external isTokenNotDeployed(_salt) returns (address) {
+    ) external returns (address) {
         latestTokenAddress = Create2.deploy(
             0,
             _salt,
